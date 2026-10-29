@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lockbox — Zero-knowledge demo</title><link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<main>
+  <header><h1>🔐 Lockbox</h1><p>Password manager cloud-native · <strong>zero-knowledge demo</strong></p></header>
+  <p id="status" class="status">Sẵn sàng. Khóa mã hóa chỉ tồn tại trong bộ nhớ trình duyệt.</p>
+  <section id="auth-card">
+    <h2>Đăng ký / Đăng nhập</h2>
+    <label>Email<input id="email" type="email" autocomplete="username" placeholder="you@example.com"></label>
+    <label>Master password<input id="master" type="password" autocomplete="current-password" placeholder="Không rời khỏi trình duyệt"></label>
+    <div class="buttons"><button id="register">Đăng ký</button><button id="login">Đăng nhập</button></div>
+    <small>Argon2id (64 MiB, 3 vòng) → HKDF → auth key + encryption key.</small>
+  </section>
+  <section id="app-card" hidden>
+    <div class="section-head"><h2>Vault</h2><button id="refresh">↻ Tải lại</button></div>
+    <form id="item-form"><input id="item-id" type="hidden">
+      <label>Website<input id="site" required placeholder="github.com"></label>
+      <label>Username<input id="username" required placeholder="alice"></label>
+      <label>Password<input id="item-password" required type="password" placeholder="Mật khẩu cần lưu"></label>
+      <label>Ghi chú<textarea id="notes" placeholder="Tùy chọn"></textarea></label>
+      <div class="buttons"><button>Lưu đã mã hóa</button><button type="button" id="cancel">Hủy sửa</button></div>
+    </form>
+    <div id="items"></div>
+    <hr><h2>Security demo</h2>
+    <div class="buttons"><button id="leak">DB leak view</button><button id="logs">Audit log</button><button id="rotate">Rotate KMS master key</button></div>
+    <pre id="output">Chọn một chức năng demo.</pre>
+  </section>
+</main><script type="module" src="/static/app.js"></script>
+</body></html>
+
