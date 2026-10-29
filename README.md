@@ -42,7 +42,7 @@ uvicorn app.main:app --app-dir backend --reload --port 8080
 
 Mở `http://127.0.0.1:8080`. Lần đầu tải trang cần Internet để CDN tải `hash-wasm`; có thể vendoring thư viện này nếu cần demo offline.
 
-## Kịch bản trình bày 3–5 phút
+
 
 1. Đăng ký một tài khoản mới. Nhấn mạnh master password không gửi lên server: browser chạy Argon2id (64 MiB, 3 iterations), rồi HKDF tách auth/encryption key.
 2. Thêm hai mục vào Vault. Giải thích mỗi mục được mã hóa AES-256-GCM phía client với IV 12-byte mới.
